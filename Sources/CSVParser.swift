@@ -30,7 +30,7 @@ public class CSVParser {
       }
     }
   }
-  
+
   /**
     Create a CSVParser from String
    - Parameters:
@@ -80,7 +80,7 @@ public class CSVParser {
   public convenience required init() {
     self.init(elements:[[]])
   }
-  
+
   public func wirite(toFilePath path: String) throws {
     try self.rows.map{ $0.joined(separator: String(self.delimiter)) }.joined(separator: String(self.lineSeparator)).write(to: URL(fileURLWithPath: path), atomically: false, encoding: .utf8)
   }
@@ -284,11 +284,11 @@ extension CSVParser {
   }
 }
 
-extension CSVParser: RangeReplaceableCollection {
-  public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Array<String> {
-    self._rows.replaceSubrange(subrange, with: newElements)
-  }
-  public func reserveCapacity(_ n: Int) {
-    self._rows.reserveCapacity(n)
-  }
-}
+//extension CSVParser: RangeReplaceableCollection {
+//  public func replaceSubrange<C>(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Iterator.Element == Array<String> {
+//    self._rows.replaceSubrange(subrange, with: newElements)
+//  }
+//  public func reserveCapacity(_ n: Int) {
+//    self._rows.reserveCapacity(n)
+//  }
+//}
